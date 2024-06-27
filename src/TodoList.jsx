@@ -1,4 +1,5 @@
 import React from "react";
+import TodoListItem from "./TodoListItem";
 
 
 let todoList=[
@@ -12,7 +13,7 @@ let todoList=[
   },
   {
     id: 3,
-    title: "wash"
+    title: "wash" 
   }
 ];
 
@@ -21,7 +22,7 @@ export default function TodoList(){
     <div>
     <ul>
     {todoList.map(function(item){
-      return <li key={item.id}>{item.title}</li>
+      return  <TodoListItem item={item} key = {item.id}/>
     })}
   </ul>
   </div>
