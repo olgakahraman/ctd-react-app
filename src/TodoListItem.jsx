@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 
-
-export default function TodoListItem(props){
-  const item = props.item;
-  return(
-    <div>
-      <li>{item.title}</li>
-    </div>
-  )
+export default function TodoListItem(props) {
+	const item = props.item;
+	return (
+		<div>
+			<li>{item.title}</li>
+		</div>
+	);
 }
