@@ -9,7 +9,7 @@ export default function AddTodoForm({ onAddTodo }) {
 	function handleAddTodo(event) {
 		event.preventDefault();
 		onAddTodo({ title: todoTitle, id: Date.now() });
-		setTodoTitle("");
+		setTodoTitle('');
 	}
 	return (
 		<div>
