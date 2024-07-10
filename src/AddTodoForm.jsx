@@ -1,5 +1,5 @@
 import { useState } from 'react';
-export default function AddTodoForm(props) {
+export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
 
 	function handleTitleChange(event) {
@@ -8,7 +8,7 @@ export default function AddTodoForm(props) {
 	}
 	function handleAddTodo(event) {
 		event.preventDefault();
-		props.onAddTodo(todoTitle);
+		onAddTodo({ title: todoTitle, id: Date.now() });
 		event.target.reset();
 	}
 	return (
