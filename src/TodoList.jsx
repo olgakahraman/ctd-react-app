@@ -1,22 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 
-let todoList = [
-	{
-		id: 1,
-		title: 'clean',
-	},
-	{
-		id: 2,
-		title: 'cook',
-	},
-	{
-		id: 3,
-		title: 'wash',
-	},
-];
-
-export default function TodoList() {
+export default function TodoList({ todoList }) {
 	return (
 		<div>
 			<ul>
