@@ -10,7 +10,7 @@ function App() {
 	}
 
 	const [todoList, setTodoList] = useState(
-		JSON.parse(localStorage.getItem('todoList')) || []
+		JSON.parse(localStorage.getItem('savedTodoList')) || []
 	);
 
 	useEffect(() => {
