@@ -14,9 +14,11 @@ function App() {
 	);
 
 	useEffect(() => {
-		localStorage.setItem('savedTodoList', todoList, [
-			todoList,
-		]);
+		localStorage.setItem(
+			'savedTodoList',
+			JSON.stringify(todoList),
+			[todoList]
+		);
 	});
 
 	return (
