@@ -1,16 +1,15 @@
 import React from 'react';
 
-export default function InputWithLabel(props) {
+export default function InputWithLabel({
+	id,
+	value,
+	onChange,
+	children,
+}) {
 	return (
 		<>
-			<label htmlFor="todoTitle">{props.title}: </label>
-			<input
-				type="text"
-				id="todoTitle"
-				name="title"
-				value={props.value}
-				onChange={props.onChange}
-			/>
+			<label htmlFor="todoTitle">{children} </label>
+			<input id={id} value={value} onChange={onChange} />
 		</>
 	);
 }

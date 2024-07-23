@@ -17,10 +17,11 @@ export default function AddTodoForm({ onAddTodo }) {
 		<div>
 			<form onSubmit={handleAddTodo}>
 				<InputWithLabel
-					title="Title"
 					value={todoTitle}
 					onChange={handleTitleChange}
-				></InputWithLabel>
+				>
+					<strong>Title:</strong>
+				</InputWithLabel>
 				<button className="submit-btn">Add</button>
 			</form>
 		</div>
