@@ -26,11 +26,22 @@ function App() {
 
 	const [todoList, setTodoList] = useSemiPersistentState();
 
+	const removeTodo = (id) => {
+		console.log(id, todoList);
+		const newList = todoList.filter(
+			(todoItem) => id !== todoItem.id
+		);
+		setTodoList(newList);
+	};
+
 	return (
 		<>
 			<h1>Todo List</h1>
 			<AddTodoForm onAddTodo={addTodo} />
-			<TodoList todoList={todoList} />
+			<TodoList
+				todoList={todoList}
+				onRemoveTodo={removeTodo}
+			/>
 		</>
 	);
 }
