@@ -4,7 +4,13 @@ import TodoList from './TodoList';
 
 import './App.css';
 
-function useSemiPersistentState() {
+
+
+function App() {
+	function addTodo(newTodo) {
+		setTodoList([...todoList, newTodo]);
+	}
+
 	const [todoList, setTodoList] = useState(
 		JSON.parse(localStorage.getItem('savedTodoList')) || []
 	);
@@ -16,15 +22,8 @@ function useSemiPersistentState() {
 			[todoList]
 		);
 	});
-	return [todoList, setTodoList];
-}
-
-function App() {
-	function addTodo(newTodo) {
-		setTodoList([...todoList, newTodo]);
-	}
-
-	const [todoList, setTodoList] = useSemiPersistentState();
+	
+	
 
 	const removeTodo = (id) => {
 		console.log(id, todoList);
