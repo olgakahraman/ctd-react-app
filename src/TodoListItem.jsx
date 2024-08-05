@@ -1,10 +1,17 @@
 import React from 'react';
 
-export default function TodoListItem({ item }) {
-	console.log(item);
+export default function TodoListItem({
+	item,
+	onRemoveTodo,
+}) {
 	return (
-		<div>
-			<li>{item.title}</li>
-		</div>
+		<>
+			<li>
+				{item.title}
+				<button onClick={() => onRemoveTodo(item.id)}>
+					Remove
+				</button>
+			</li>
+		</>
 	);
 }
