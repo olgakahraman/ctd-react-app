@@ -15,6 +15,7 @@ function App() {
 				resolve({ data: { todoList: [] } }, 2000).then(
 					(result) => {
 						setTodoList(result);
+						setIsLoading(false);
 					}
 				)
 			);
@@ -25,12 +26,18 @@ function App() {
 		JSON.parse(localStorage.getItem('savedTodoList')) || []
 	);
 
+	const [isLoading, setIsLoading] = "true";
+
+
+
 	useEffect(() => {
+		if(isLoading === false)
 		localStorage.setItem(
 			'savedTodoList',
 			JSON.stringify(todoList),
 			[todoList]
 		);
+		
 	});
 
 	const removeTodo = (id) => {
