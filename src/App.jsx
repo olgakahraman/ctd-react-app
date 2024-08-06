@@ -4,12 +4,22 @@ import TodoList from './TodoList';
 
 import './App.css';
 
-
-
 function App() {
 	function addTodo(newTodo) {
 		setTodoList([...todoList, newTodo]);
 	}
+
+	useEffect(() => {
+		const p1 = new Promise((resolve, reject) => {
+			setTimeout(() =>
+				resolve({ data: { todoList: [] } }, 2000).then(
+					(result) => {
+						setTodoList(result);
+					}
+				)
+			);
+		});
+	});
 
 	const [todoList, setTodoList] = useState(
 		JSON.parse(localStorage.getItem('savedTodoList')) || []
@@ -22,8 +32,6 @@ function App() {
 			[todoList]
 		);
 	});
-	
-	
 
 	const removeTodo = (id) => {
 		console.log(id, todoList);
