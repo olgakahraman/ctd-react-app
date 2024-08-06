@@ -29,9 +29,8 @@ function App() {
 	const [isLoading, setIsLoading] = "true";
 
 
-
 	useEffect(() => {
-		if(isLoading === false)
+		if(!isLoading)
 		localStorage.setItem(
 			'savedTodoList',
 			JSON.stringify(todoList),
@@ -52,10 +51,16 @@ function App() {
 		<>
 			<h1>Todo List</h1>
 			<AddTodoForm onAddTodo={addTodo} />
-			<TodoList
+			if(isLoading){
+				(<p>Loading...</p>)
+			}else{
+					<TodoList
 				todoList={todoList}
 				onRemoveTodo={removeTodo}
 			/>
+			}
+			
+		
 		</>
 	);
 }
