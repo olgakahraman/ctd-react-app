@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import AddTodoForm from './AddTodoForm';
-import TodoList from './TodoList';
-
+import { Route, Routes } from 'react-router-dom';
+// import TodoList from './TodoList';
 import './App.css';
+import Home from './Home';
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
@@ -48,8 +48,11 @@ function App() {
 				};
 			});
 			console.log('todos ===> ', todos);
+			console.log('todoList ===> ', todoList);
 
 			setTodoList(todos);
+			console.log('todos ====> ', todos);
+
 			setIsLoading(false);
 		} catch (error) {
 			console.log(error.message);
@@ -106,10 +109,10 @@ function App() {
 	// 		}
 	// 		const dataResponse = await response.json();
 	// 		return dataResponse;
-			
+
 	// 	} catch (error) {
 	// 		console.log(error.message);
-			
+
 	// 	}
 	// }
 	useEffect(() => {
@@ -129,18 +132,21 @@ function App() {
 	};
 
 	return (
-		<>
-			<h1>Todo List</h1>
-			<AddTodoForm onAddTodo={addTodo} />
-			{isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<TodoList
-					todoList={todoList}
-					onRemoveTodo={removeTodo}
-				/>
-			)}
-		</>
+		<Routes>
+			<Route
+				path="/"
+				element={
+					<Home
+						todoList={todoList}
+						addTodo={addTodo}
+						isLoading={isLoading}
+						removeTodo={removeTodo}
+					/>
+				}
+			/>
+
+			<Route path="/new" element={<h1>New Todo List</h1>} />
+		</Routes>
 	);
 }
 
