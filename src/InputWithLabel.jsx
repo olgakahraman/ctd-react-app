@@ -19,7 +19,7 @@ export default function InputWithLabel({
 
 			<input
 				ref={inputRef}
-				id="todoTitle"   //{id}
+				id="todoTitle"
 				value={value}
 				onChange={onChange}
 			/>
