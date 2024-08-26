@@ -8,13 +8,20 @@ export default function AddTodoForm({ onAddTodo }) {
 		let newTodoTitle = event.target.value;
 		setTodoTitle(newTodoTitle);
 	}
-	const postTodo =  async(newTodo) => {
+
+	const postTodo = async (newTodo) => {
+		console.log('newTodo', newTodo);
 		try {
 			const airtableData = {
-				fields: {
-					title: newTodo,
-				},
+				records: [
+					{
+						fields: {
+							title: `${newTodo}`,
+						},
+					},
+				],
 			};
+
 			const response = await fetch(
 				`https://api.airtable.com/v0/${
 					import.meta.env.VITE_AIRTABLE_BASE_ID
@@ -36,18 +43,18 @@ export default function AddTodoForm({ onAddTodo }) {
 			}
 			const dataResponse = await response.json();
 			return dataResponse;
-			
 		} catch (error) {
 			console.log(error.message);
-			
 		}
-	}
+	};
+
 	function handleAddTodo(event) {
 		event.preventDefault();
 		onAddTodo({ title: todoTitle, id: Date.now() });
-		postTodo();
+		postTodo(todoTitle);
 		setTodoTitle('');
 	}
+
 	return (
 		<div>
 			<form onSubmit={handleAddTodo}>
