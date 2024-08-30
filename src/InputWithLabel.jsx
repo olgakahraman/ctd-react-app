@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 export default function InputWithLabel({
 	id,
 	value,
-
 	onChange,
 	children,
 }) {
