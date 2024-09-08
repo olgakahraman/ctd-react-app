@@ -1,37 +1,92 @@
 import { useEffect, useState } from 'react';
-import AddTodoForm from './AddTodoForm';
-import TodoList from './TodoList';
-
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
-
 	const [isLoading, setIsLoading] = useState('true');
 
+	const postTodo = async (newTodo) => {
+		try {
+			const airtableData = {
+				records: [
+					{
+						fields: {
+							title: `${newTodo}`,
+						},
+					},
+				],
+			};
+
+			const response = await fetch(
+				`https://api.airtable.com/v0/${
+					import.meta.env.VITE_AIRTABLE_BASE_ID
+				}/Default`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${
+							import.meta.env.VITE_AIRTABLE_API_TOKEN
+						}`,
+					},
+					body: JSON.stringify(airtableData),
+				}
+			);
+			if (!response.ok) {
+				const message = `Error has ocurred: ${response.status}`;
+				throw new Error(message);
+			}
+			const dataResponse = await response.json();
+			return dataResponse;
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	function addTodo(newTodo) {
+		postTodo(newTodo.title);
+
 		setTodoList([...todoList, newTodo]);
 	}
 
-	useEffect(() => {
-		const p1 = new Promise((resolve, reject) => {
-			setTimeout(
-				() =>
-					resolve({
-						data: {
-							todoList:
-								JSON.parse(
-									localStorage.getItem('savedTodoList')
-								) || [],
-						},
-					}),
-				2000
-			);
-		}).then((result) => {
-			console.log(result);
-			setTodoList(result.data.todoList);
+	async function fetchData() {
+		const options = {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${
+					import.meta.env.VITE_AIRTABLE_API_TOKEN
+				}`,
+			},
+		};
+		const url = `https://api.airtable.com/v0/${
+			import.meta.env.VITE_AIRTABLE_BASE_ID
+		}/${import.meta.env.VITE_TABLE_NAME}`;
+
+		try {
+			const response = await fetch(url, options);
+			if (!response.ok) {
+				const message = `Error has ocurred: ${response.status}`;
+				throw new Error(message);
+			}
+			const data = await response.json();
+
+			const todos = data.records.map((todo) => {
+				return {
+					id: todo.id,
+					title: todo.fields.title,
+				};
+			});
+			setTodoList(todos);
 			setIsLoading(false);
-		});
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
+	useEffect(() => {
+		fetchData();
 	}, []);
 
 	useEffect(() => {
@@ -51,18 +106,21 @@ function App() {
 	};
 
 	return (
-		<>
-			<h1>Todo List</h1>
-			<AddTodoForm onAddTodo={addTodo} />
-			{isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<TodoList
-					todoList={todoList}
-					onRemoveTodo={removeTodo}
-				/>
-			)}
-		</>
+		<Routes>
+			<Route
+				path="/"
+				element={
+					<Home
+						todoList={todoList}
+						addTodo={addTodo}
+						isLoading={isLoading}
+						removeTodo={removeTodo}
+					/>
+				}
+			/>
+
+			<Route path="/new" element={<h1>New Todo List</h1>} />
+		</Routes>
 	);
 }
 

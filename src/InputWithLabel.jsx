@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 export default function InputWithLabel({
 	id,
 	value,
-
 	onChange,
 	children,
 }) {
@@ -19,7 +18,7 @@ export default function InputWithLabel({
 
 			<input
 				ref={inputRef}
-				id="todoTitle"   //{id}
+				id="todoTitle"
 				value={value}
 				onChange={onChange}
 			/>
