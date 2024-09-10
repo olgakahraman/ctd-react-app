@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './TodoListItem.module.css';
 
 export default function TodoListItem({
 	item,
@@ -6,11 +7,20 @@ export default function TodoListItem({
 }) {
 	return (
 		<>
-			<li>
+			<li className={styles.ListItem}>
 				{item.title}
-				<button onClick={() => onRemoveTodo(item.id)}>
-					Remove
-				</button>
+				<div className={styles.btns}>
+					<button className={styles.btn} title="Done">
+						<i className="fa-solid fa-check"></i>
+					</button>
+					<button
+						className={styles.btn}
+						onClick={() => onRemoveTodo(item.id)}
+						title="Remove"
+					>
+						<i className="fa-solid fa-trash-can"></i>
+					</button>
+				</div>
 			</li>
 		</>
 	);
