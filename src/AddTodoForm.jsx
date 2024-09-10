@@ -2,7 +2,7 @@ import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
 
 
-export default function AddTodoForm({ onAddTodo, }) {
+export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
 
 	function handleTitleChange(event) {
