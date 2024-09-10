@@ -1,0 +1,13 @@
+.container {
+	background-color: rgba(255, 255, 255, 0.3);
+	max-width: 400px;
+
+	margin: 1em auto;
+	padding: 20px;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 8px;
+}
+
+.header {
+	text-align: center;
+}

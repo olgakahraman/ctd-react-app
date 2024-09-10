@@ -1,0 +1,30 @@
+:global ul {
+	padding: 0;
+}
+
+.ListItem {
+	margin-bottom: 10px;
+	font-size: 1.2em;
+	background-color: #fffdf8;
+	padding: 8px;
+	border-radius: 8px;
+	list-style: none;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+	display: flex;
+	transition: all 150ms ease-in-out;
+}
+.btns {
+	margin-left: auto;
+}
+.btn {
+	border: none;
+	background: none;
+	transition: all 150ms ease-in-out;
+	font-size: 1em;
+	color: #4a2574;
+}
+.btn:hover {
+	color: fuchsia;
+	cursor: pointer;
+	transform: scale(1.1);
+}
