@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import styles from './AddTodoForm.module.css';
 import InputWithLabel from './InputWithLabel';
 
-
-export default function AddTodoForm({ onAddTodo, }) {
+export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
+	// const listEl = document.querySelector("#list");
 
 	function handleTitleChange(event) {
 		let newTodoTitle = event.target.value;
@@ -18,14 +19,17 @@ export default function AddTodoForm({ onAddTodo, }) {
 
 	return (
 		<div>
-			<form onSubmit={handleAddTodo}>
+			<form
+				className={styles.form}
+				onSubmit={handleAddTodo}
+			>
 				<InputWithLabel
 					value={todoTitle}
 					onChange={handleTitleChange}
 				>
-					<strong>Title:</strong>
+					<strong></strong>
 				</InputWithLabel>
-				<button className="submit-btn">Add</button>
+				<button className={styles.btn}>Add</button>
 			</form>
 		</div>
 	);
