@@ -19,12 +19,12 @@
 .btn {
 	border: none;
 	background: none;
-	transition: all 150ms ease-in-out;
+transition: all 200ms ease-in-out;
 	font-size: 1em;
 	color: #4a2574;
 }
 .btn:hover {
-	color: fuchsia;
+	color: #720c99;
 	cursor: pointer;
-	transform: scale(1.1);
+	transform: scale(1.2);
 }
