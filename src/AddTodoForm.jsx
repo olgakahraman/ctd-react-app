@@ -1,71 +1,36 @@
 import { useState } from 'react';
+import styles from './AddTodoForm.module.css';
 import InputWithLabel from './InputWithLabel';
 
-
+ main
 export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
+	// const listEl = document.querySelector("#list");
 
 	function handleTitleChange(event) {
 		let newTodoTitle = event.target.value;
 		setTodoTitle(newTodoTitle);
 	}
 
-	// const postTodo = async (newTodo) => {
-	// 	console.log('newTodo', newTodo);
-	// 	try {
-	// 		const airtableData = {
-	// 			records: [
-	// 				{
-	// 					fields: {
-	// 						title: `${newTodo}`,
-	// 					},
-	// 				},
-	// 			],
-	// 		};
-
-	// 		const response = await fetch(
-	// 			`https://api.airtable.com/v0/${
-	// 				import.meta.env.VITE_AIRTABLE_BASE_ID
-	// 			}/Default`,
-	// 			{
-	// 				method: 'POST',
-	// 				headers: {
-	// 					'Content-Type': 'application/json',
-	// 					Authorization: `Bearer ${
-	// 						import.meta.env.VITE_AIRTABLE_API_TOKEN
-	// 					}`,
-	// 				},
-	// 				body: JSON.stringify(airtableData),
-	// 			}
-	// 		);
-	// 		if (!response.ok) {
-	// 			const message = `Error has ocurred: ${response.status}`;
-	// 			throw new Error(message);
-	// 		}
-	// 		const dataResponse = await response.json();
-	// 		return dataResponse;
-	// 	} catch (error) {
-	// 		console.log(error.message);
-	// 	}
-	// };
-
 	function handleAddTodo(event) {
 		event.preventDefault();
 		onAddTodo({ title: todoTitle, id: Date.now() });
-		// postTodo(todoTitle);
 		setTodoTitle('');
 	}
 
 	return (
 		<div>
-			<form onSubmit={handleAddTodo}>
+			<form
+				className={styles.form}
+				onSubmit={handleAddTodo}
+			>
 				<InputWithLabel
 					value={todoTitle}
 					onChange={handleTitleChange}
 				>
-					<strong>Title:</strong>
+					<strong></strong>
 				</InputWithLabel>
-				<button className="submit-btn">Add</button>
+				<button className={styles.btn}>Add</button>
 			</form>
 		</div>
 	);

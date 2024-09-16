@@ -1,4 +1,5 @@
 import AddTodoForm from './AddTodoForm';
+import styles from './Home.module.css';
 import TodoList from './TodoList';
 
 export default function Home({
@@ -8,8 +9,8 @@ export default function Home({
 	removeTodo,
 }) {
 	return (
-		<>
-			<h1>Todo List</h1>
+		<div className={styles.container}>
+			<h1 className={styles.header}>Todo List</h1>
 			<AddTodoForm onAddTodo={addTodo} />
 			{isLoading ? (
 				<p>Loading...</p>
@@ -19,6 +20,6 @@ export default function Home({
 					onRemoveTodo={removeTodo}
 				/>
 			)}
-		</>
+		</div>
 	);
 }

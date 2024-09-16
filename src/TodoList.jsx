@@ -7,7 +7,7 @@ export default function TodoList({
 }) {
 	return (
 		<>
-			<ul>
+			<ul id="list">
 				{todoList.map(function (item) {
 					return (
 						<TodoListItem

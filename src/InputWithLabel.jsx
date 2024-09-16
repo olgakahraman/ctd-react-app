@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import styles from './InputWithLabel.module.css';
 
 export default function InputWithLabel({
 	id,
@@ -17,10 +18,12 @@ export default function InputWithLabel({
 			<label htmlFor="todoTitle">{children} </label>
 
 			<input
+				className={styles.input}
 				ref={inputRef}
 				id="todoTitle"
 				value={value}
 				onChange={onChange}
+				placeholder="New task"
 			/>
 		</>
 	);
