@@ -5,7 +5,7 @@ import InputWithLabel from './InputWithLabel';
  
 export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
-	// const listEl = document.querySelector("#list");
+	
 
 	function handleTitleChange(event) {
 		let newTodoTitle = event.target.value;

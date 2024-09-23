@@ -7,30 +7,24 @@ function App() {
 	const [todoList, setTodoList] = useState([]);
 	const [isLoading, setIsLoading] = useState('true');
 
-	// const deleteTodo = async (todo) => {
-	// 	const airtableData = {
-	// 		id: todo.id,
-	// 		title: todo.fields.title,
-	// 	};
-
-	// 	const response = await fetch(
-	// 		`https://api.airtable.com/v0/${
-	// 			import.meta.env.VITE_AIRTABLE_BASE_ID
-	// 		}/Default`,
-	// 		{
-	// 			method: 'DELETE',
-	// 			headers: {
-	// 				'Content-Type': 'application/json',
-	// 				Authorization: `Bearer ${
-	// 					import.meta.env.VITE_AIRTABLE_API_TOKEN
-	// 				}`,
-	// 			},
-	// 			body: JSON.stringify(airtableData),
-	// 		}
-	// 	);
-	// 	const data = await response.json(data);
-	// 	return data;
-	// };
+	const deleteTodo = async (id) => {
+		const response = await fetch(
+			`https://api.airtable.com/v0/${
+				import.meta.env.VITE_AIRTABLE_BASE_ID
+			}/Default/${id}`,
+			{
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${
+						import.meta.env.VITE_AIRTABLE_API_TOKEN
+					}`,
+				}
+			}
+		);
+		const data = await response.json();
+		return data;
+	};
 
 	const postTodo = async (newTodo) => {
 		try {
@@ -127,7 +121,7 @@ function App() {
 			(todoItem) => id !== todoItem.id
 		);
 		setTodoList(newList);
-		// deleteTodo(todo.id);
+		deleteTodo(id);
 	};
 
 	return (
