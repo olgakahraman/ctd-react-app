@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Home';
+import Home from './components/Home';
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
@@ -19,7 +19,7 @@ function App() {
 					Authorization: `Bearer ${
 						import.meta.env.VITE_AIRTABLE_API_TOKEN
 					}`,
-				}
+				},
 			}
 		);
 		const data = await response.json();
