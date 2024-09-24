@@ -2,10 +2,8 @@ import { useState } from 'react';
 import styles from './AddTodoForm.module.css';
 import InputWithLabel from './InputWithLabel';
 
- 
 export default function AddTodoForm({ onAddTodo }) {
 	const [todoTitle, setTodoTitle] = useState('');
-	
 
 	function handleTitleChange(event) {
 		let newTodoTitle = event.target.value;
