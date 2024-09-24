@@ -16,15 +16,20 @@ export default function InputWithLabel({
 	return (
 		<>
 			<label htmlFor="todoTitle">{children} </label>
-
-			<input
-				className={styles.input}
-				ref={inputRef}
-				id="todoTitle"
-				value={value}
-				onChange={onChange}
-				placeholder="New task"
-			/>
+			What's up?
+			<div className="inputContainer">
+				<input
+					className={styles.input}
+					ref={inputRef}
+					id="todoTitle"
+					value={value}
+					onChange={onChange}
+					placeholder="New task"
+				/>
+				<button className={styles.btn} title="Add task">
+					Add
+				</button>
+			</div>
 		</>
 	);
 }
