@@ -1,12 +1,12 @@
-.btn{
-  border-radius: 8px;
-  padding: 8px;
-  font-size: 1.3em;
-  text-align: center;
-  margin-left: auto;
-  border:1px solid lightgrey;
-  margin-left: 10px;
-  transition: all 150ms ease-in-out;
+.btn {
+	border-radius: 8px;
+	padding: 8px;
+	font-size: 1.3em;
+	text-align: center;
+	margin-left: auto;
+	border: 1px solid lightgrey;
+	margin-left: 10px;
+	transition: all 150ms ease-in-out;
 }
 .btn:hover {
 	color: fuchsia;
@@ -14,8 +14,6 @@
 	transform: scale(1.1);
 }
 
-.form{
-  display:flex;
-  
-  
+.form {
+	display: flex;
 }

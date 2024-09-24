@@ -19,7 +19,7 @@
 .btn {
 	border: none;
 	background: none;
-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
 	font-size: 1em;
 	color: #4a2574;
 }
