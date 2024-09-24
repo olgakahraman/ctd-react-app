@@ -6,6 +6,7 @@ export default function Home({
 	todoList,
 	isLoading,
 	addTodo,
+
 	removeTodo,
 }) {
 	return (
@@ -18,6 +19,7 @@ export default function Home({
 			) : (
 				<TodoList
 					todoList={todoList}
+					
 					onRemoveTodo={removeTodo}
 				/>
 			)}
