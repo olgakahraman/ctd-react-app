@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
+import TodoContainer from './components/TodoContainer';
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
@@ -129,7 +129,7 @@ function App() {
 			<Route
 				path="/"
 				element={
-					<Home
+					<TodoContainer
 						todoList={todoList}
 						addTodo={addTodo}
 						isLoading={isLoading}
@@ -142,5 +142,7 @@ function App() {
 		</Routes>
 	);
 }
+
+
 
 export default App;
