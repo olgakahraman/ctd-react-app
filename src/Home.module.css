@@ -11,3 +11,17 @@
 .header {
 	text-align: center;
 }
+footer{
+  max-width: 400px;
+	margin: 2em auto;
+	text-align: center;
+	color:plum;
+	transition: all 150ms ease-in-out;
+	font-family: 'Montserrat', sans-serif;
+}
+footer a{
+	color:plum
+}
+footer a:hover{
+	color: #4a2574;
+}
