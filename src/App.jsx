@@ -72,19 +72,25 @@ function App() {
 	};
 
 	async function addTodo(newTodo) {
-		console.log('newTodo before ===> ', newTodo);
-		const dataResponse = await postTodo(newTodo.title);
-		console.log('dataResponse ===> ', dataResponse);
-		console.log(
-			'dataResponse.records[0].id ===> ',
-			dataResponse.records[0].id
-		);
-		// const todoObject
-		const todoId = dataResponse.records[0].id;
-		console.log('todoId ===> ', todoId);
-		newTodo.id = todoId;
-		console.log('newTodo after ===> ', newTodo);
-		setTodoList([...todoList, newTodo]);
+		const inputValue =
+			document.querySelector('#todoTitle').value;
+		if (!inputValue) {
+			alert('Please type something');
+		} else {
+			console.log('newTodo before ===> ', newTodo);
+			const dataResponse = await postTodo(newTodo.title);
+			console.log('dataResponse ===> ', dataResponse);
+			console.log(
+				'dataResponse.records[0].id ===> ',
+				dataResponse.records[0].id
+			);
+			// const todoObject
+			const todoId = dataResponse.records[0].id;
+			console.log('todoId ===> ', todoId);
+			newTodo.id = todoId;
+			console.log('newTodo after ===> ', newTodo);
+			setTodoList([...todoList, newTodo]);
+		}
 	}
 
 	async function fetchData() {
@@ -150,7 +156,6 @@ function App() {
 			/>
 
 			<Route path="/new" element={<h1>New Todo List</h1>} />
-			
 		</Routes>
 	);
 }
