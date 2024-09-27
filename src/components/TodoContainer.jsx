@@ -1,8 +1,9 @@
+import PropTypes from 'prop-types';
 import AddTodoForm from './AddTodoForm';
-import styles from './Home.module.css';
+import styles from './TodoContainer.module.css';
 import TodoList from './TodoList';
 
-export default function Home({
+export default function TodoContainer({
 	todoList,
 	isLoading,
 	addTodo,
@@ -42,3 +43,10 @@ export default function Home({
 
 	);
 }
+
+TodoContainer.propTypes = {
+	todoList: PropTypes.array,
+	isLoading: PropTypes.func,
+	addTodo: PropTypes.func,
+	removeTodo: PropTypes.func,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import styles from './InputWithLabel.module.css';
 
@@ -33,3 +34,10 @@ export default function InputWithLabel({
 		</>
 	);
 }
+
+InputWithLabel.propTypes = {
+	id: PropTypes.string,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
+	children: PropTypes.object,
+};
