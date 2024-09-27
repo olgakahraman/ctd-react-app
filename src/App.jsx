@@ -5,7 +5,7 @@ import TodoContainer from './components/TodoContainer';
 
 function App() {
 	const [todoList, setTodoList] = useState([]);
-	const [isLoading, setIsLoading] = useState('true');
+	const [isLoading, setIsLoading] = useState(true);
 
 	const deleteTodo = async (id) => {
 		const response = await fetch(

@@ -7,7 +7,6 @@ export default function TodoContainer({
 	todoList,
 	isLoading,
 	addTodo,
-
 	removeTodo,
 }) {
 	return (
@@ -46,7 +45,7 @@ export default function TodoContainer({
 
 TodoContainer.propTypes = {
 	todoList: PropTypes.array,
-	isLoading: PropTypes.func,
+	isLoading: PropTypes.bool,
 	addTodo: PropTypes.func,
 	removeTodo: PropTypes.func,
 };
