@@ -2,6 +2,40 @@
 	border-radius: 8px;
 	padding: 8px;
 	font-size: 1.3em;
-	width: 80%;
+	width: 79%;
 	border: 1px solid lightgrey;
+	margin-bottom: 1.13rem;
+	transition:all 1ms ease-in-out;
 }
+.input::placeholder {
+	color: #4a2574;
+	opacity: 0.6;
+}
+.btn {
+	color: #4a2574;
+	border-radius: 8px;
+	padding: 8px;
+	font-size: 1.3em;
+	text-align: center;
+	margin-left: auto;
+	border: 1px solid lightgrey;
+	margin-left: 10px;
+	transition: all 150ms ease-in-out;
+}
+.btn:hover {
+	color: #720c99;
+	cursor: pointer;
+	transform: scale(1.1);
+}
+.inputContainer {
+	display: flex;
+}
+@media screen and (max-width: 450px){
+.btn{
+	display:none;
+}
+.input{
+	width:95%;
+}
+}
+	
