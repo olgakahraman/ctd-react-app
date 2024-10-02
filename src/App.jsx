@@ -123,13 +123,24 @@ function App() {
 						title: todo.fields.title,
 					};
 				})
+				// .sort((objectA, objectB) => {
+				// 	const TitleA = objectA.title.toUpperCase();
+				// 	const TitleB = objectB.title.toUpperCase();
+				// 	if (TitleA < TitleB) {
+				// 		return -1;
+				// 	} else if (TitleA > TitleB) {
+				// 		return 1;
+				// 	} else {
+				// 		return 0;
+				// 	}
+				// });
 				.sort((objectA, objectB) => {
 					const TitleA = objectA.title.toUpperCase();
 					const TitleB = objectB.title.toUpperCase();
 					if (TitleA < TitleB) {
-						return -1;
-					} else if (TitleA > TitleB) {
 						return 1;
+					} else if (TitleA > TitleB) {
+						return -1;
 					} else {
 						return 0;
 					}
