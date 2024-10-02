@@ -123,28 +123,33 @@ function App() {
 						title: todo.fields.title,
 					};
 				})
-				// .sort((objectA, objectB) => {
-				// 	const TitleA = objectA.title.toUpperCase();
-				// 	const TitleB = objectB.title.toUpperCase();
-				// 	if (TitleA < TitleB) {
-				// 		return -1;
-				// 	} else if (TitleA > TitleB) {
-				// 		return 1;
-				// 	} else {
-				// 		return 0;
-				// 	}
-				// });
+
+				//ABC order
 				.sort((objectA, objectB) => {
 					const TitleA = objectA.title.toUpperCase();
 					const TitleB = objectB.title.toUpperCase();
 					if (TitleA < TitleB) {
-						return 1;
-					} else if (TitleA > TitleB) {
 						return -1;
+					} else if (TitleA > TitleB) {
+						return 1;
 					} else {
 						return 0;
 					}
 				});
+
+			//reversing order
+
+			// .sort((objectA, objectB) => {
+			// 	const TitleA = objectA.title.toUpperCase();
+			// 	const TitleB = objectB.title.toUpperCase();
+			// 	if (TitleA < TitleB) {
+			// 		return 1;
+			// 	} else if (TitleA > TitleB) {
+			// 		return -1;
+			// 	} else {
+			// 		return 0;
+			// 	}
+			// });
 			setTodoList(todos);
 			setIsLoading(false);
 		} catch (error) {

@@ -26,9 +26,7 @@ export default function AddTodoForm({ onAddTodo }) {
 				<InputWithLabel
 					value={todoTitle}
 					onChange={handleTitleChange}
-				>
-				
-				</InputWithLabel>
+				></InputWithLabel>
 				{/* <button className={styles.btn}>Add</button> */}
 			</form>
 		</div>
