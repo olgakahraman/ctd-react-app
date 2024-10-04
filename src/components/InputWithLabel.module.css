@@ -7,6 +7,7 @@
 	margin-bottom: 1.13rem;
 	transition: all 1ms ease-in-out;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+	margin-top:5px;
 }
 .input::placeholder {
 	color: #4a2574;
@@ -30,6 +31,7 @@
 	transform: scale(1.1);
 }
 .inputContainer {
+	
 	display: flex;
 }
 @media screen and (max-width: 450px) {
