@@ -9,9 +9,10 @@
 	padding: 8px;
 	border-radius: 8px;
 	list-style: none;
-	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	display: flex;
 	transition: all 150ms ease-in-out;
+	border: 1px solid rgb(163, 66, 163);
 }
 .btns {
 	margin-left: auto;
