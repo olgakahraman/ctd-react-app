@@ -217,7 +217,7 @@ function App() {
 				'savedTodoList',
 				JSON.stringify(todoList)
 			);
-	}, [todoList]);
+	}, [todoList, isLoading]);
 
 	return (
 		<Routes>

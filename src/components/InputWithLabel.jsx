@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 import styles from './InputWithLabel.module.css';
 
 export default function InputWithLabel({
-	id,
 	value,
 	onChange,
 	children,
@@ -17,7 +16,7 @@ export default function InputWithLabel({
 	return (
 		<>
 			<label htmlFor="todoTitle">{children} </label>
-			What's up?
+			What&apos;s up?
 			<div className="inputContainer">
 				<input
 					className={styles.input}
