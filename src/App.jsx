@@ -35,6 +35,53 @@ function App() {
 		deleteTodo(id);
 	};
 
+	const doneTodo = async (id) => {
+		console.log(id, todoList);
+		const updatedTodoList = todoList.map((todo) =>
+			todo.id === id
+				? { ...todo, isDone: !todo.isDone }
+				: todo
+		);
+
+		setTodoList(updatedTodoList); // Update state immediately
+		await patchTodo(
+			id,
+			updatedTodoList.find((todo) => todo.id === id).isDone
+		); // Call patchTodo with the correct status
+	};
+
+	const patchTodo = async (id, isDone) => {
+		try {
+			const airtableData = {
+				fields: {
+					isDone: isDone,
+				},
+			};
+			const url = `https://api.airtable.com/v0/${
+				import.meta.env.VITE_AIRTABLE_BASE_ID
+			}/Default/${id}`;
+
+			const response = await fetch(url, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${
+						import.meta.env.VITE_AIRTABLE_API_TOKEN
+					}`,
+				},
+				body: JSON.stringify(airtableData),
+			});
+			if (!response.ok) {
+				const message = `Error has ocurred: ${response.status}`;
+				throw new Error(message);
+			}
+			const dataResponse = await response.json();
+			return dataResponse;
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	const postTodo = async (title) => {
 		try {
 			const airtableData = {
@@ -121,6 +168,7 @@ function App() {
 					return {
 						id: todo.id,
 						title: todo.fields.title,
+						isDone: todo.fields.isDone,
 					};
 				})
 
@@ -180,6 +228,7 @@ function App() {
 						todoList={todoList}
 						addTodo={addTodo}
 						isLoading={isLoading}
+						doneTodo={doneTodo}
 						removeTodo={removeTodo}
 					/>
 				}
