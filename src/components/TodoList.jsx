@@ -4,6 +4,7 @@ import TodoListItem from './TodoListItem';
 
 export default function TodoList({
 	todoList,
+	onDoneTodo,
 	onRemoveTodo,
 }) {
 	return (
@@ -14,6 +15,7 @@ export default function TodoList({
 						<TodoListItem
 							item={item}
 							key={item.id}
+							onDoneTodo={onDoneTodo}
 							onRemoveTodo={onRemoveTodo}
 						/>
 					);
@@ -25,5 +27,6 @@ export default function TodoList({
 
 TodoList.propTypes = {
 	todoList: PropTypes.array,
+	onDoneTodo: PropTypes.func,
 	onRemoveTodo: PropTypes.func,
 };

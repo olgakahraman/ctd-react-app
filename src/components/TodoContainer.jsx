@@ -7,6 +7,7 @@ export default function TodoContainer({
 	todoList,
 	isLoading,
 	addTodo,
+	doneTodo,
 	removeTodo,
 }) {
 	return (
@@ -19,6 +20,7 @@ export default function TodoContainer({
 				) : (
 					<TodoList
 						todoList={todoList}
+						onDoneTodo={doneTodo}
 						onRemoveTodo={removeTodo}
 					/>
 				)}
@@ -43,5 +45,6 @@ TodoContainer.propTypes = {
 	todoList: PropTypes.array,
 	isLoading: PropTypes.bool,
 	addTodo: PropTypes.func,
+	doneTodo: PropTypes.func,
 	removeTodo: PropTypes.func,
 };
