@@ -9,7 +9,7 @@
 	padding: 8px;
 	border-radius: 8px;
 	list-style: none;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	display: flex;
 	transition: all 150ms ease-in-out;
 	border: 1px solid rgb(163, 66, 163);
@@ -28,4 +28,14 @@
 	color: #720c99;
 	cursor: pointer;
 	transform: scale(1.2);
+}
+
+.done {
+	background-color: #720c99;
+	border-radius: 4px;
+	color:#fff;
+}
+.done:hover{
+
+	color:#fff;
 }
